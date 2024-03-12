@@ -14,7 +14,11 @@ const SearchResults = () => {
     setResult(searchTerm);
   };
 
-
+  return (
+    <div>
+   
+    </div>
+  );
 };
 
 export default SearchResults;

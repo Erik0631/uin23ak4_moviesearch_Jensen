@@ -8,6 +8,7 @@ import './Component/bookcard'
 
 
 
+
 function App() {
   const [count, setCount] = useState(0)
   const [searchTerm, setSearchTerm] = useState(``);
@@ -19,13 +20,13 @@ function App() {
   return (
     <>
     <div class="square">
-     <input 
-        type="text" 
-        placeholder="Skriv inn søket ditt..." 
-        value={searchTerm} 
-        onChange={handleInputChange} 
-      />
-      <button id='apiUrl'>trykk her</button>
+
+
+
+    <input id="apiUrl"></input>
+
+  
+    <button id='apiUrl'>trykk her</button>
 
 
     </div>
