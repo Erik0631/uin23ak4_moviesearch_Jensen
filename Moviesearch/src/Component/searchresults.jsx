@@ -14,21 +14,7 @@ const SearchResults = () => {
     setResult(searchTerm);
   };
 
-  return (
-    <div>
-      <input 
-        type="text" 
-        placeholder="Skriv inn søket ditt..." 
-        value={searchTerm} 
-        onChange={handleInputChange} 
-      />
-      <button onClick={handleSearch}>Søk</button>
-      <div>
-        <h2>Resultat:</h2>
-        <p>{result}</p>
-      </div>
-    </div>
-  );
+
 };
 
 export default SearchResults;
