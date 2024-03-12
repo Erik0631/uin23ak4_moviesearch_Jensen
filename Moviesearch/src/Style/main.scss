@@ -1,9 +1,10 @@
-$width:700px;
-$height:700px;
-
+$width:800px;
+$height:800px;
+$backgroundColor: rgb(154, 152, 152);
+$squareColor:rgb(255, 255, 255);
 
 body {
-    background-color: rgb(154, 152, 152);
+    background-color: $backgroundColor;
 
 
     
@@ -12,6 +13,7 @@ body {
 .square {
     width: $width;
     height: $height;
-    background-color: white;
-    box-shadow:inset
+    background-color:$squareColor;
+   
 }
+
