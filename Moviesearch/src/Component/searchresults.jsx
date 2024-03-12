@@ -9,16 +9,11 @@ const SearchResults = () => {
   };
 
   const handleSearch = () => {
-    // Her kan du utføre søket basert på searchTerm
-    // For nå setter vi bare resultatet til det som er skrevet inn i søkefeltet
+
     setResult(searchTerm);
   };
 
-  return (
-    <div>
-   
-    </div>
-  );
+
 };
 
 export default SearchResults;

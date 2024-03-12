@@ -8,15 +8,9 @@ import './Component/bookcard'
 
 
 
-
 function App() {
-  const [count, setCount] = useState(0)
-  const [searchTerm, setSearchTerm] = useState(``);
 
-  const  handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-    };
-
+  
   return (
     <>
     <div class="square">
@@ -25,6 +19,8 @@ function App() {
 
     <input id="apiUrl"></input>
 
+    
+    
   
     <button id='apiUrl'>trykk her</button>
 
