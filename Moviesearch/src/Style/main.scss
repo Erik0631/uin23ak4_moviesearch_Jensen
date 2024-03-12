@@ -1,0 +1,17 @@
+$width:700px;
+$height:700px;
+
+
+body {
+    background-color: rgb(154, 152, 152);
+
+
+    
+}
+
+.square {
+    width: $width;
+    height: $height;
+    background-color: white;
+ 
+}
