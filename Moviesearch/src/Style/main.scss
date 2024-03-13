@@ -3,7 +3,17 @@ $height:800px;
 $backgroundColor: rgb(154, 152, 152);
 $squareColor:rgb(255, 255, 255);
 
+#root{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+
 body {
+    
     background-color: $backgroundColor;
 
 
@@ -11,12 +21,14 @@ body {
 }
 
 .square {
+    
     width: $width;
     height: $height;
     background-color:$squareColor;
-   align-items: center;
+  
    
 }
+
 
 
 
