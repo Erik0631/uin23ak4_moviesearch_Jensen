@@ -1,5 +1,5 @@
 $width:800px;
-$height:800px;
+$height:600px;
 $backgroundColor: rgb(154, 152, 152);
 $squareColor:rgb(255, 255, 255);
 
@@ -8,6 +8,7 @@ $squareColor:rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 
 }
 
@@ -15,20 +16,21 @@ $squareColor:rgb(255, 255, 255);
 body {
     
     background-color: $backgroundColor;
+    
 
 
     
 }
 
-.square {
-    
+.square { 
     width: $width;
     height: $height;
     background-color:$squareColor;
-  
    
 }
 
+.section {
+    padding: 10rem;
 
-
+}
 

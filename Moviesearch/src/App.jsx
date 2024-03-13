@@ -16,15 +16,16 @@ function App() {
     <div class="square">
 
 
+<section>
 
     <input id="apiUrl"></input>
-
     
     
   
     <button id ="apiUrl">trykk her</button>
 
 
+</section>
     </div>
     </>
 
