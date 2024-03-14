@@ -1,12 +1,11 @@
 
 
-const apiUrl = 'https://openlibrary.org/search.json?title=James+Bond';
-
-
-fetch(apiUrl)
-.then(response => response.json())
-.then(data => setPost(data))
-.catch(error => console.error(error))
+const apiUrl = async () =>{
+    fetch(`https://openlibrary.org/search.json?title=James+Bond`)
+    .then(response => response.json())
+    .then(data => setPost(data))
+    .catch(error => console.error(error))
+}
   
 
 

@@ -5,9 +5,6 @@ import './App.css'
 import './Style/main.scss'
 import './Component/bookcard'
 
-
-
-
 function App() {
 
   
