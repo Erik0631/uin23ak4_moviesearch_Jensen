@@ -4,10 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './Style/main.scss'
 import './Component/bookcard'
+import './Component/searchresults'
+
 
 function App() {
 
-  
   return (
     <>
     <div class="square">
@@ -15,12 +16,9 @@ function App() {
 
 <section>
 
-    <input id="apiUrl"></input>
-    
-    
+    <input id="apiUrl"></input>    
   
     <button id ="apiUrl">trykk her</button>
-
 
 </section>
     </div>
