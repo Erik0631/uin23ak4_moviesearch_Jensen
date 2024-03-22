@@ -1,31 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import './Style/main.scss'
-import './Component/bookcard'
-import './Component/searchresults'
+import React, { useState } from 'react';
+import SearchResults from './Component/searchresults';
+import BookCard from './Component/bookcard';
+import './Style/main.scss';
+import './Style/searchresults.scss';
 
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   return (
     <>
-    <div class="square">
-
-
-<section>
-
-    <input id="apiUrl"></input>    
-  
-    <button id ="apiUrl">trykk her</button>
-
-</section>
-    </div>
+      <SearchResults onSearch={handleSearch} />
+      <BookCard searchTerm={searchTerm} />
     </>
-
-
-  )
+  );
 }
 
-export default App
+export default App;

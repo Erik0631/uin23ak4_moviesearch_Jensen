@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 
-const SearchResults = () => {
+const SearchResults = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [result, setResult] = useState('');
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleSearch = () => {
-
-    setResult(searchTerm);
+    onSearch(searchTerm);
   };
 
-
+  return (
+    <div className="search-container">
+      <input 
+        type="text" 
+        value={searchTerm} 
+        onChange={handleInputChange} 
+        placeholder="Søk etter tittel..." 
+      />
+      <button onClick={handleSearch}>Søk</button>
+    </div>
+  );
 };
 
 export default SearchResults;
