@@ -1,11 +1,16 @@
-.search-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8); /* Juster gjennomsiktigheten etter behov */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.search-results {
+    max-height: 300px; /* Sett maksimal høyde for søkeresultatboksen */
+    overflow-y: auto; /* Tillat rulling hvis innholdet overskrider maksimal høyde */
+    padding: 10px;
+    box-sizing: border-box; /* Inkluder padding i boksens totale høyde */
+  }
+  
+  .search-results-inner {
+    padding: 5px 0; /* Legg til litt padding rundt søkeresultatene */
+  }
+  
+  .search-result {
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
   }
   

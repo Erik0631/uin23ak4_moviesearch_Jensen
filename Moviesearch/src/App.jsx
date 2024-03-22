@@ -14,14 +14,15 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app-container">
       <SearchResults onSearch={handleSearch} />
-      {searchResultsVisible && <BookCard searchTerm={searchTerm} />}
-      
-    </>
+      {searchResultsVisible && (
+        <div className="book-card-container">
+          <BookCard searchTerm={searchTerm} />
+        </div>
+      )}
+    </div>
   );
-
-  
 }
 
 export default App;
