@@ -4,20 +4,24 @@ import BookCard from './Component/bookcard';
 import './Style/main.scss';
 import './Style/searchresults.scss';
 
-
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResultsVisible, setSearchResultsVisible] = useState(false);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
+    setSearchResultsVisible(true);
   };
 
   return (
     <>
       <SearchResults onSearch={handleSearch} />
-      <BookCard searchTerm={searchTerm} />
+      {searchResultsVisible && <BookCard searchTerm={searchTerm} />}
+      
     </>
   );
+
+  
 }
 
 export default App;
