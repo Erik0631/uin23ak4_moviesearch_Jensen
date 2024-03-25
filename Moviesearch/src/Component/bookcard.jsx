@@ -31,15 +31,15 @@ const BookCard = ({ searchTerm }) => {
   }, [searchTerm]);
 
   const handleAmazonSearch = (amazonId) => {
-    window.open(`https://www.amazon.com/s?k=${amazonId}`, '_blank');
+    window.open(`https://www.amazon.com/s?k=0395082544=${amazonId}`, '_blank');
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Laster...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Feil: {error.message}</div>;
   }
 
   return (

@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchResults from './Component/searchresults';
 import BookCard from './Component/bookcard';
 import './Style/main.scss';
 import './Style/searchresults.scss';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResultsVisible, setSearchResultsVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('James Bond');
+  const [searchResultsVisible, setSearchResultsVisible] = useState(true);
+
+  useEffect(() => {
+    // Søk etter James Bond-bøker når komponenten lastes
+    handleSearch('James Bond');
+  }, []); // Tom avhengighetsliste sikrer at useEffect kun kjøres en gang ved innlasting
 
   const handleSearch = (term) => {
     setSearchTerm(term);
