@@ -4,6 +4,7 @@ import BookCard from './Component/bookcard';
 import './Style/main.scss';
 import './Style/searchresults.scss';
 
+
 function App() {
   const [searchTerm, setSearchTerm] = useState('James Bond');
   const [searchResultsVisible, setSearchResultsVisible] = useState(true);
