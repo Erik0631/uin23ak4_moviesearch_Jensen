@@ -3,6 +3,8 @@
     overflow-y: auto; /* Tillat rulling hvis innholdet overskrider maksimal høyde */
     padding: 10px;
     box-sizing: border-box; /* Inkluder padding i boksens totale høyde */
+    align-items: center;
+    
   }
   
   .search-results-inner {

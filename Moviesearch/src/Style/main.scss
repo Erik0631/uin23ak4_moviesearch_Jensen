@@ -1,10 +1,23 @@
+$primary-color: #656565;
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center; /* Sentrer innholdet horisontalt */
+  align-items: center; /* Sentrer innholdet vertikalt */
+  background-color: $primary-color;
+}
+
 .app-container {
-    max-width: 800px; /* Sett maksimal bredde for app-container */
-    margin: 0 auto; /* Sentrer app-container horisontalt */
-  }
-  
-  .book-card-container {
-    max-height: 400px; /* Sett maksimal høyde for book-card-container */
-    overflow-y: auto; /* Legg til rulling hvis innholdet overskrider maksimal høyde */
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.book-card-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
