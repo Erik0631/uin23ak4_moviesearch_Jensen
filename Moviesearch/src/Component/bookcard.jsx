@@ -42,7 +42,7 @@ const BookCard = ({ searchTerm }) => {
 
   if (isLoading) {
     // Hvis dataene lastes
-    return <div>Loading...</div>; // Viser en "Loading..."-melding
+    return <div>Laster...</div>; // Viser en "Loading..."-melding
   }
 
   if (error) {
@@ -65,12 +65,12 @@ const BookCard = ({ searchTerm }) => {
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" /> // Viser bokforsiden som et bilde
                 )}
               </div>
-              <button onClick={() => handleAmazonSearch(book.title)}>Search on Amazon</button> {/* Knapp for å søke på Amazon */}
+              <button onClick={() => handleAmazonSearch(book.title)}>Søk hos Amazon</button> {/* Knapp for å søke på Amazon */}
             </div>
           ))}
         </div>
       ) : (
-        <div>No results</div> // Hvis det ikke finnes søkeresultater, viser en melding om ingen resultater
+        <div>Ingen resultater</div> // Hvis det ikke finnes søkeresultater, viser en melding om ingen resultater
       )}
     </div>
   );
