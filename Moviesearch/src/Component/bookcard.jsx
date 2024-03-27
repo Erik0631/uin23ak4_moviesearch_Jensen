@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
 const BookCard = ({ searchTerm }) => {
-  const [searchResults, setSearchResults] = useState([]); // Lagrer søkeresultatene
-  const [isLoading, setIsLoading] = useState(false); // Indikerer om data lastes
-  const [error, setError] = useState(null); // Lagrer eventuelle feilmeldinger
+  const [searchResults, setSearchResults] = useState([]); // State for å lagre søkeresultatene
+  const [isLoading, setIsLoading] = useState(false); // State for å indikere om dataene lastes
+  const [error, setError] = useState(null); // State for å lagre eventuelle feilmeldinger
 
   useEffect(() => {
-    const fetchData = async () => { // Definerer en asynkron funksjon for å hente data
-      if (!searchTerm) { // Sjekker om søketeksten er tom
-        setSearchResults([]); // Hvis tom, sett søkeresultatene til tom liste og avslutt
+    // Effektfunksjon for å hente data
+    const fetchData = async () => {
+      if (!searchTerm) {
+        // Sjekker om søketeksten er tom
+        setSearchResults([]); // Setter søkeresultatene til en tom liste hvis søketeksten er tom
         return;
       }
 
-      setIsLoading(true); // Setter isLoading til true for å vise at dataene lastes
+      setIsLoading(true); // Setter isLoading til true for å indikere at dataene lastes
       try {
-        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`); // Gjør et API-kall for å hente data
-        if (!response.ok) { // Sjekker om responsen er ok
-          throw new Error('Failed to fetch data'); // Hvis ikke, kast en feilmelding
+        // Prøver å hente data fra API-et
+        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`);
+        if (!response.ok) {
+          // Sjekker om responsen er ok
+          throw new Error('Failed to fetch data'); // Kaster en feilmelding hvis responsen ikke er ok
         }
         const data = await response.json(); // Konverterer responsen til JSON-format
         setSearchResults(data.docs); // Lagrer søkeresultatene i state
@@ -27,25 +31,24 @@ const BookCard = ({ searchTerm }) => {
       }
     };
 
-    
-
     fetchData(); // Kaller fetchData-funksjonen når komponenten blir montert eller når searchTerm endres
   }, [searchTerm]); // Reagerer på endringer i searchTerm
 
-  const handleAmazonSearch = (amazonId) => { // Håndterer søk på Amazon
-    window.open(`https://www.amazon.com/=${amazonId}`, '_blank'); // Åpner en ny fane med Amazon-søket
-    
+  // Funksjon for å håndtere søket på Amazon
+  const handleAmazonSearch = (title) => {
+    const searchQuery = encodeURIComponent(title); // Kodierer tittelen for å sikre gyldig URL
+    window.open(`https://www.amazon.com/s?k=${searchQuery}`, '_blank'); // Åpner Amazon-søk i ny fane med tittelen som søkebegrep
   };
 
-  if (isLoading) { // Hvis data lastes
+  if (isLoading) {
+    // Hvis dataene lastes
     return <div>Loading...</div>; // Viser en "Loading..."-melding
   }
 
-  if (error) { // Hvis det oppstår en feil under henting av data
+  if (error) {
+    // Hvis det oppstår en feil under henting av data
     return <div>Error: {error.message}</div>; // Viser en feilmelding
   }
-
-  
 
   return (
     <div>
@@ -62,7 +65,7 @@ const BookCard = ({ searchTerm }) => {
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" /> // Viser bokforsiden som et bilde
                 )}
               </div>
-              <button onClick={() => handleAmazonSearch(book.amazon_id)}>Search on Amazon</button> {/* Knapp for å søke på Amazon */}
+              <button onClick={() => handleAmazonSearch(book.title)}>Search on Amazon</button> {/* Knapp for å søke på Amazon */}
             </div>
           ))}
         </div>

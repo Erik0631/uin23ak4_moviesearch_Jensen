@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const SearchResults = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState(''); // Definerer en state for søkebegrepet
   const [searchResults, setSearchResults] = useState([]); // Definerer en state for søkeresultatene
@@ -29,7 +30,6 @@ const SearchResults = ({ onSearch }) => {
           {searchResults.map((result, index) => (
             <div key={index} className="search-result">
               <div>{result.title}</div> {/* Viser tittelen på søkeresultatet */}
-              <button onClick={() => handleAmazonSearch(result.title)}>Search on Amazon</button> {/* Knapp for å søke etter boken på Amazon */}
             </div>
           ))}
         </div>
