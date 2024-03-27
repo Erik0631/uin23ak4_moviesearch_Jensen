@@ -14,14 +14,6 @@ const SearchResults = ({ onSearch }) => {
     onSearch(searchTerm);
   };
 
-  // Funksjon for å utføre søk på Amazon når brukeren klikker på knappen
-  const handleAmazonSearch = (title) => {
-    console.log("Søker etter bok med tittel:", title); // Konsolllogg for å vise tittelen som blir sendt til Amazon-søket
-    const searchQuery = encodeURIComponent(title);
-    window.open(`https://www.amazon.com/s?k=${searchQuery}`, '_blank');
-  };
-
-  
 
   return (
     <div className="search-container">

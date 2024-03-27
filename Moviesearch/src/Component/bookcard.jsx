@@ -14,7 +14,7 @@ const BookCard = ({ searchTerm }) => {
 
       setIsLoading(true); // Setter isLoading til true for å vise at dataene lastes
       try {
-        const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`); // Gjør et API-kall for å hente data
+        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`); // Gjør et API-kall for å hente data
         if (!response.ok) { // Sjekker om responsen er ok
           throw new Error('Failed to fetch data'); // Hvis ikke, kast en feilmelding
         }
@@ -33,7 +33,7 @@ const BookCard = ({ searchTerm }) => {
   }, [searchTerm]); // Reagerer på endringer i searchTerm
 
   const handleAmazonSearch = (amazonId) => { // Håndterer søk på Amazon
-    window.open(`https://www.amazon.com/${amazonId}`, '_blank'); // Åpner en ny fane med Amazon-søket
+    window.open(`https://www.amazon.com/=${amazonId}`, '_blank'); // Åpner en ny fane med Amazon-søket
     
   };
 
