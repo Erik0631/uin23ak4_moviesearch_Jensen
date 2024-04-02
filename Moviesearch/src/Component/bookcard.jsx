@@ -12,13 +12,11 @@ const BookCard = ({ searchTerm }) => {
         setSearchResults([]);
         return;
       }
-
+  
       setIsLoading(true);
       try {
-        const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
+        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`);
+        if (!response.ok) throw new Error('Feil melding');
         const data = await response.json();
         setSearchResults(data.docs);
       } catch (error) {
@@ -27,15 +25,18 @@ const BookCard = ({ searchTerm }) => {
         setIsLoading(false);
       }
     };
-
+  
     fetchData();
   }, [searchTerm]);
+  
 
   const handleAmazonSearch = (title) => {
     const searchQuery = encodeURIComponent(title);
+    //åpner amazon 
     window.open(`https://www.amazon.com/s?k=${searchQuery}`, '_blank');
   };
 
+  //Henter fra bookcard
   return (
     <div>
       {isLoading ? (
@@ -56,7 +57,8 @@ const BookCard = ({ searchTerm }) => {
                     <article>  
                     {book.cover_i && (
                       <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
-                      )}
+                     )}
+                   
                     </article>
                   </div>
                   <button onClick={() => handleAmazonSearch(book.title)}>Søk hos Amazon</button>  
