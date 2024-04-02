@@ -58,7 +58,7 @@ const BookCard = ({ searchTerm }) => {
                     {book.cover_i && (
                       <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
                      )}
-                   
+                
                     </article>
                   </div>
                   <button onClick={() => handleAmazonSearch(book.title)}>Søk hos Amazon</button>  
