@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchResults = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState(''); // Definerer en state for søkebegrepet
@@ -10,9 +11,8 @@ const SearchResults = ({ onSearch }) => {
   };
 
   // Funksjon for å starte søket når brukeren klikker på søkeknappen
-  const handleSearch = () => { {
-      onSearch(searchTerm);
-    }
+  const handleSearch = () => {
+    onSearch(searchTerm);
   };
 
   return (
@@ -28,7 +28,8 @@ const SearchResults = ({ onSearch }) => {
         <div className="search-results-inner">
           {searchResults.map((result, index) => (
             <div key={index} className="search-result">
-              <div>{result.title}</div> {/* Viser tittelen på søkeresultatet */}
+              {/* Bruk Link-komponenten til å lage en lenke til bokdetaljsiden */}
+              <Link to={`/book/${result.id}`}>{result.title}</Link>
             </div>
           ))}
         </div>

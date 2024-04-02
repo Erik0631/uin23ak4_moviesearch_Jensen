@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route,  } from 'react-router-dom'; 
+
 import SearchResults from './Component/searchresults';
 import BookCard from './Component/bookcard';
 import './Style/main.scss';
 import './Style/searchresults.scss';
-
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('James Bond');
@@ -20,14 +21,16 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <SearchResults onSearch={handleSearch} />
-      {searchResultsVisible && (
-        <div className="book-card-container">
-          <BookCard searchTerm={searchTerm} />
-        </div>
-      )}
-    </div>
+    <Router> {}
+      <div className="app-container">
+        <SearchResults onSearch={handleSearch} />
+        {searchResultsVisible && (
+          <div className="book-card-container">
+            <BookCard searchTerm={searchTerm} />
+          </div>
+        )}
+      </div>
+    </Router>
   );
 }
 
