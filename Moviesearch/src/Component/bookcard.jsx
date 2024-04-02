@@ -56,12 +56,12 @@ const BookCard = ({ searchTerm }) => {
                     <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
                     <article>  
                     {book.cover_i && (
-                      <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
+                      <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" /> //Henter book cover
                      )}
                 
                     </article>
                   </div>
-                  <button onClick={() => handleAmazonSearch(book.title)}>Søk hos Amazon</button>  
+                  <button onClick={() => handleAmazonSearch(book.title)}>Søk hos Amazon</button>   
                 </div>
               ))}
             </div>
