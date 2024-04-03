@@ -1,67 +1,61 @@
 import React, { useState, useEffect } from 'react';
 
 const BookCard = ({ searchTerm }) => {
-  const [searchResults, setSearchResults] = useState([]); //lagre søkeresultater
-  const [isLoading, setIsLoading] = useState(false); // Viser at data laster
-  const [error, setError] = useState(null); //lagrer eventuelle feilmeldinger
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!searchTerm) { // Sjekk om søketeksten er tom
-        setSearchResults([]); // Sett søkeresultatene til en tom liste
-        return;
-      }
+      if (!searchTerm) return setSearchResults([]); //unngå unødvendig kjøring
 
-      setIsLoading(true); 
+      setIsLoading(true);
       try {
-        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`);
-        if (!response.ok) throw new Error('Feil melding'); // Gir en feilmelding
-        const data = await response.json(); // Endrer responsen til JSON-format
-        setSearchResults(data.docs); // Lagrer søkeresultatene i state
+        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`); // Henter api
+        if (!response.ok) throw new Error('Feil melding');
+        const data = await response.json();
+        setSearchResults(data.docs);
       } catch (error) {
-        setError(error); // Lagrer eventuelle feilmeldinger
+        setError(error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchData(); // Henter fetchData
-  }, [searchTerm]); 
+    fetchData();
+  }, [searchTerm]);
 
-  const handleAmazonSearch = (isbn) => {
-    const amazonUrl = `https://www.amazon.com/s?k=${isbn}`;
-    window.open(amazonUrl, '_blank'); // Åpne lenken i en ny// fane https://www.w3schools.com/jsref/met_win_open.asp
-  };
+  const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank'); //søkefunskjon for Amazon https://www.w3schools.com/jsref/met_win_open.asp
 
   return (
     <div>
       {isLoading ? (
-        <div>Laster...</div> // Viser "Laster..." når siden søker 
+        <div>Laster...</div>
       ) : error ? (
-        <div>Error: {error.message}</div> // Vis feilmeldingen hvis det oppstår en feil
+        <div>Error: {error.message}</div>
       ) : (
         <div>
-          {searchResults.length > 0 ? ( 
+          {searchResults.length > 0 ? (
             <div>
               {searchResults.map((book) => (
                 <div key={book.key} className="book-card">
                   <div className="book-details">
                     <div>Title: {book.title}</div>
                     <div>First published year: {book.first_publish_year}</div>
-                    <div>Author: {book.author_name}</div> 
-                    <div>Average rating: {book.ratings_average || 'Rating not available'}</div> {/* Vis gjennomsnittlig rangering eller en melding hvis rating ikke er tilgjengelig */}
+                    <div>Author: {book.author_name}</div>
+                    <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
                     <article>
                       {book.cover_i && (
                         <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
-                      )} {/* Viser bokomslaget hvis dette er tilgjengelig */}
-                    </article>
+                      )}
+                    </article> 
                   </div>
-                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* Klikkbar knapp for å søke på Amazon */}
+                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* knapp for å søke på Amazon */}
                 </div>
               ))}
             </div>
           ) : (
-            <div>Ingen resultater</div> // Vis "Ingen resultater" hvis det ikke finnes søkeresultater
+            <div>Ingen resultater</div> //Henter feilmelding
           )}
         </div>
       )}
