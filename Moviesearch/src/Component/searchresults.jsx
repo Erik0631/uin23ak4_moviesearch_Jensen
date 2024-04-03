@@ -24,7 +24,7 @@ const SearchResults = ({ onSearch }) => {
         type="text" 
         value={searchTerm} 
         onChange={handleInputChange} 
-        placeholder="Søk etter tittel..." 
+        placeholder="Søk etter Bok..." 
       />
       <button onClick={handleSearch}>Søk</button>
       <div className="search-results">
