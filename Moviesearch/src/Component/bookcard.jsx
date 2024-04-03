@@ -25,12 +25,12 @@ const BookCard = ({ searchTerm }) => {
       }
     };
 
-    fetchData(); // Henter fetchData-funksjonen
+    fetchData(); // Henter fetchData
   }, [searchTerm]); 
 
   const handleAmazonSearch = (isbn) => {
     const amazonUrl = `https://www.amazon.com/s?k=${isbn}`;
-    window.open(amazonUrl, '_blank'); // Åpne lenken i en ny fane
+    window.open(amazonUrl, '_blank'); // Åpne lenken i en ny// fane https://www.w3schools.com/jsref/met_win_open.asp
   };
 
   return (
@@ -41,19 +41,19 @@ const BookCard = ({ searchTerm }) => {
         <div>Error: {error.message}</div> // Vis feilmeldingen hvis det oppstår en feil
       ) : (
         <div>
-          {searchResults.length > 0 ? ( // Sjekk om det finnes søkeresultater
+          {searchResults.length > 0 ? ( 
             <div>
               {searchResults.map((book) => (
                 <div key={book.key} className="book-card">
                   <div className="book-details">
                     <div>Title: {book.title}</div>
                     <div>First published year: {book.first_publish_year}</div>
-                    <div>Author: {book.author_name}</div> {/* Vis forfatteren */}
+                    <div>Author: {book.author_name}</div> 
                     <div>Average rating: {book.ratings_average || 'Rating not available'}</div> {/* Vis gjennomsnittlig rangering eller en melding hvis rating ikke er tilgjengelig */}
                     <article>
                       {book.cover_i && (
                         <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
-                      )} {/* Vis bokomslaget hvis tilgjengelig */}
+                      )} {/* Viser bokomslaget hvis dette er tilgjengelig */}
                     </article>
                   </div>
                   <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* Klikkbar knapp for å søke på Amazon */}

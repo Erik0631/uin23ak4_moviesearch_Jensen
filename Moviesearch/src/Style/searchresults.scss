@@ -1,13 +1,12 @@
 .search-results {
-    max-height: 300px; /* Sett maksimal høyde for søkeresultatboksen */
-    overflow-y: auto; /* Tillat rulling hvis innholdet overskrider maksimal høyde */
+    max-height: 300px; 
+    overflow-y: auto; 
     padding: 10px;
-    box-sizing: border-box; /* Inkluder padding i boksens totale høyde */
     align-items: center;
     
   }
   
   .search-results-inner {
-    padding: 5px 0; /* Legg til litt padding rundt søkeresultatene */
+    padding: 5px 0; 
   }
   
