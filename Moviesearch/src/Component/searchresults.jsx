@@ -12,7 +12,10 @@ const SearchResults = ({ onSearch }) => {
 
   // Funksjon for å starte søket når brukeren klikker på søkeknappen
   const handleSearch = () => {
-    onSearch(searchTerm);
+    // Sjekk om lengden på søketeksten er minst tre tegn 
+    if (searchTerm.length >= 3) {
+      onSearch(searchTerm);
+    }
   };
 
   return (
@@ -26,12 +29,6 @@ const SearchResults = ({ onSearch }) => {
       <button onClick={handleSearch}>Søk</button>
       <div className="search-results">
         <div className="search-results-inner">
-          {searchResults.map((result, index) => (
-            <div key={index} className="search-result">
-              {/* Bruk Link-komponenten til å lage en lenke til bokdetaljsiden */}
-              <Link to={`/book/${result.id}`}>{result.title}</Link>
-            </div>
-          ))}
         </div>
       </div>
     </div>

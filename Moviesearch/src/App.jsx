@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     // Søk etter James Bond-bøker når komponenten lastes
     handleSearch('James Bond');
-  }, []); // Tom avhengighetsliste sikrer at useEffect kun kjøres en gang ved innlasting
+  }, []); // Tom avhengighetsliste sikrer at useEffect kun kjøres en gang 
 
   const handleSearch = (term) => {
     setSearchTerm(term);
