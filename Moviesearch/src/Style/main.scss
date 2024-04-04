@@ -1,35 +1,40 @@
 $primary-color: #4c4746;
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $primary-color;
-}
+  
+  
+  .app-container {
+    max-width: auto;
+    margin: 0 auto;
+    
+  }
+  .book-card-container {
+    flex: 1; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: auto; 
+    max-height: 420px;
+    overflow-y: auto;
+    
+  }
+  
+  .book-card {
 
-.app-container {
-  max-width: auto;
-  margin: 0 auto;
-}
+    margin-bottom: 20px;
+  }
+  
+  }
 
-.book-card-container {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: auto; 
-  max-height: 420px;
-  overflow-y: auto;
-}
-
-.book-card {
-  display: block;
-  flex: 1 1 200px; 
-  margin-bottom: 20px;
-  padding: 1.5rem;
-}
+  @media (max-width: 410px) {
+    .book-card-container {
+      margin: 0.5rem auto;
+      width: 100%;
+    }
+   }
+  

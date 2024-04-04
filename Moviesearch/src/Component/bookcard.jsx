@@ -7,14 +7,14 @@ const BookCard = ({ searchTerm }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!searchTerm) return setSearchResults([]);
+      if (!searchTerm) return setSearchResults([]);  //sjekker om searchTerm er tom når den skal søke
 
       setIsLoading(true);
       try {
         const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`); // Henter data fra Open Library// 
         if (!response.ok) throw new Error('Feil melding');
         const data = await response.json();
-        setSearchResults(data.docs); //Hvis søket for treff så lagrer den det i searchResults.
+        setSearchResults(data.docs); //Henter data
       } catch (error) {
         setError(error);
       } finally {
@@ -46,16 +46,16 @@ const BookCard = ({ searchTerm }) => {
                     <div>Author: {book.author_name}</div>
                     <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
                       {book.cover_i && (
-                        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
+                        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />  /* Henter book cover vis det er tilgjendlig  */
                       )}
                     </article> 
                   </div>
-                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* knapp for å søke på Amazon */}
+                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* Knapp for å søke på Amazon */}
                 </div>
               ))}
             </div>
           ) : (
-            <div>Ingen Resultater</div> // feilmelding
+            <div>Ingen Resultater</div> //Feilmelding vis 
           )}
         </div>
       )}

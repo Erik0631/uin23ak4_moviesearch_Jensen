@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 
 const SearchResults = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState(''); // Definerer en state for søkebegrepet
+  const [searchTerm, setSearchTerm] = useState(''); //Søkebegrep
 
-  // Funksjon for å håndtere endringer i input-feltet for søkebegrepet
+  //Funksjon for å håndtere endringer i input-feltet for søkebegrepet
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
