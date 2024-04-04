@@ -50,7 +50,7 @@ const BookCard = ({ searchTerm }) => {
                       )}
                     </article> 
                   </div>
-                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Søk hos Amazon</button> {/* Knapp for å søke på Amazon */}
+                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Amazon</button> {/* Knapp for å søke på Amazon */}
                 </div>
               ))}
             </div>
