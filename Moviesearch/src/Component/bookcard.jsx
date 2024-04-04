@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const BookCard = ({ searchTerm }) => {
+  //lagre søkeresultater
   const [searchResults, setSearchResults] = useState([]); 
+  //vise om datan som laster stemmer 
   const [isLoading, setIsLoading] = useState(false);
+  //lagre eventuelle feilmeldinger 
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,8 +27,8 @@ const BookCard = ({ searchTerm }) => {
 
     fetchData();
   }, [searchTerm]);
-
-  const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank'); //søkefunskjon for Amazon https://www.w3schools.com/jsref/met_win_open.asp
+  ; //Søkefunskjon for Amazon https://www.w3schools.com/jsref/met_win_open.asp
+  const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank')
 
   return (
     <div>
@@ -44,7 +47,7 @@ const BookCard = ({ searchTerm }) => {
                     <div>Title:{book.title}</div>
                     <div>First published year: {book.first_publish_year}</div>
                     <div>Author: {book.author_name}</div>
-                    <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
+                    <div>Average rating: {book.ratings_average || 'Rating not available'}</div> {/* Henter rating vis dette er tilgjengelig*/}
                       {book.cover_i && (
                         <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />  /* Henter book cover vis det er tilgjendlig  */
                       )}
@@ -55,7 +58,7 @@ const BookCard = ({ searchTerm }) => {
               ))}
             </div>
           ) : (
-            <div>Ingen Resultater</div> //Feilmelding vis 
+            <div>Ingen Resultater</div> //Feilmelding 
           )}
         </div>
       )}
