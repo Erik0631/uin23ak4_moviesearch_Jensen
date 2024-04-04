@@ -15,7 +15,7 @@ const BookCard = ({ searchTerm }) => {
         const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`); // Henter data fra Open Library// 
         if (!response.ok) throw new Error('Feil melding');
         const data = await response.json();
-        setSearchResults(data.docs); //Henter data
+        setSearchResults(data.docs); //Henter data 
       } catch (error) {
         setError(error);
       } finally {

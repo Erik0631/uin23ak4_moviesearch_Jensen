@@ -17,15 +17,15 @@ body {
   flex: 1; 
   max-height: 600px;
   overflow-y: auto;
+ 
 }
 
-.book-card {
-  margin-bottom: 40px;
-}
 
-@media (max-width: 410px) {
+@media (max-width: 480px) {
   .book-card-container {
     margin: 0.5rem auto;
     width: 100%;
+    
+   
   }
 }
