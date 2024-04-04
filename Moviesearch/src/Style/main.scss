@@ -5,6 +5,7 @@ html, body {
   margin: 0;
 }
 
+
 body {
   display: flex;
   justify-content: center;
@@ -13,7 +14,7 @@ body {
 }
 
 .app-container {
-  max-width: 800px;
+  max-width: auto;
   margin: 0 auto;
 }
 
@@ -21,12 +22,15 @@ body {
   display: flex;
   flex-wrap: wrap; 
   justify-content: center; 
-  gap: 20px; 
-  max-height: 400px;
+  gap: auto; 
+  max-height: 420px;
   overflow-y: auto;
 }
 
 .book-card {
+  display: block;
   flex: 1 1 200px; 
   margin-bottom: 20px;
+  padding: 1rem;
+  
 }

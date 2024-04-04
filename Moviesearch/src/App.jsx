@@ -11,9 +11,9 @@ function App() {
   const [searchResultsVisible, setSearchResultsVisible] = useState(true);
 
   useEffect(() => {
-    // Søk etter James Bond-bøker når komponenten lastes
+    // Søk etter James Bond-bøker når siden lastes
     handleSearch('James Bond');
-  }, []); // Tom avhengighetsliste sikrer at useEffect kun kjøres en gang 
+  }, []); // Tom [] sikrer at useEffect kun kjøres en gang 
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -22,6 +22,7 @@ function App() {
 
   return (
     <Router> {}
+      <h1>Oppgave 4, Bok søk</h1>
       <div className="app-container">
         <SearchResults onSearch={handleSearch} />
         {searchResultsVisible && (

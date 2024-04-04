@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 const BookCard = ({ searchTerm }) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]); 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!searchTerm) return setSearchResults([]); //unngå unødvendig kjøring
+      if (!searchTerm) return setSearchResults([]);
 
       setIsLoading(true);
       try {
-        const response = await fetch(`https://openlibrary.org/search.json?title=James+Bond=${encodeURIComponent(searchTerm)}`); // Henter api
+        const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`); // Henter data fra Open Library// 
         if (!response.ok) throw new Error('Feil melding');
         const data = await response.json();
-        setSearchResults(data.docs);
+        setSearchResults(data.docs); //Hvis søket for treff så lagrer den det i searchResults.
       } catch (error) {
         setError(error);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false); //Stopper laste funksjonen 
       }
     };
 
@@ -37,14 +37,14 @@ const BookCard = ({ searchTerm }) => {
         <div>
           {searchResults.length > 0 ? (
             <div>
-              {searchResults.map((book) => (
+              {searchResults.map((book) => (/* Henter bok informajson  */
                 <div key={book.key} className="book-card">
                   <div className="book-details">
+                  <article>
                     <div>Title: {book.title}</div>
                     <div>First published year: {book.first_publish_year}</div>
                     <div>Author: {book.author_name}</div>
                     <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
-                    <article>
                       {book.cover_i && (
                         <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
                       )}
@@ -55,7 +55,7 @@ const BookCard = ({ searchTerm }) => {
               ))}
             </div>
           ) : (
-            <div>Ingen resultater</div> //Henter feilmelding
+            <div>Ingen Resultater</div> // feilmelding
           )}
         </div>
       )}
