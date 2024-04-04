@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const BookCard = ({ searchTerm }) => {
-  //lagre søkeresultater
+  //lagrer søkeresultater
   const [searchResults, setSearchResults] = useState([]); 
-  //vise om datan som laster stemmer 
+  //viser om datan som laster stemmer 
   const [isLoading, setIsLoading] = useState(false);
-  //lagre eventuelle feilmeldinger 
+  //lagrer eventuelle feilmeldinger 
   const [error, setError] = useState(null);
 
   useEffect(() => {
