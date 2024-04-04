@@ -41,7 +41,7 @@ const BookCard = ({ searchTerm }) => {
                 <div key={book.key} className="book-card">
                   <div className="book-details">
                   <article>
-                    <div>Title: {book.title}</div>
+                    <div>Title:{book.title}</div>
                     <div>First published year: {book.first_publish_year}</div>
                     <div>Author: {book.author_name}</div>
                     <div>Average rating: {book.ratings_average || 'Rating not available'}</div>

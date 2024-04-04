@@ -9,8 +9,6 @@ const SearchResults = ({ onSearch }) => {
     setSearchTerm(event.target.value);
   };
 
-  
-
   // Funksjon for å starte søket når brukeren klikker på søkeknappen
   const handleSearch = () => {
     // Sjekk om lengden på søketeksten er minst tre tegn 
