@@ -27,8 +27,8 @@ const SearchResults = ({ onSearch }) => {
       />
       <button onClick={handleSearch}>Søk</button>
       <div className="search-results">
-        <div className="search-results-inner">
-        </div>
+        <div className="search-results-inner"></div>
+        
       </div>
     </div>
   );

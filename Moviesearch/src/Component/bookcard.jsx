@@ -10,8 +10,6 @@ const BookCard = ({ searchTerm }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!searchTerm) return setSearchResults([]);  //sjekker om searchTerm er tom når den skal søke
-
       setIsLoading(true);
       try {
         const response = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(searchTerm)}`); // Henter data fra Open Library// 
@@ -40,7 +38,7 @@ const BookCard = ({ searchTerm }) => {
         <div>
           {searchResults.length > 0 ? (
             <div>
-              {searchResults.map((book) => (/* Henter bok informajson  */
+              {searchResults.map((book) => (/* Henter bok informajson */
                 <div key={book.key} className="book-card">
                   <div className="book-details">
                   <article>
