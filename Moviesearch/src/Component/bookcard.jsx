@@ -27,13 +27,13 @@ const BookCard = ({ searchTerm }) => {
 
     fetchData();
   }, [searchTerm]);
-  ; //Søkefunskjon for Amazon https://www.w3schools.com/jsref/met_win_open.asp
-  const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank')
+  ; //Søkefunskjon for Amazon// ref https://www.w3schools.com/jsref/met_win_open.asp
+  const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank') /* Bruker boken sin isbn for å søke hos Amazon */
 
   return (
     <div>
       {isLoading ? (
-        <div>Laster...</div>
+        <div>Henter fra Openlibrary...</div>
       ) : error ? (
         <div>Error: {error.message}</div>
       ) : (
