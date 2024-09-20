@@ -29,7 +29,6 @@ const BookCard = ({ searchTerm }) => {
   const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank') /* Bruker boken sin isbn for å søke hos Amazon */
 
   return (
-
   <div>
     {isLoading ? (
       <div>Henter fra Openlibrary...</div>
@@ -47,6 +46,8 @@ const BookCard = ({ searchTerm }) => {
                   {book.cover_i && (
                     <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
                   )}
+              <button onClick={() => handleAmazonSearch(book.isbn[0])}>Amazon</button>
+
             </div>
           ))
         ) : (
@@ -56,7 +57,6 @@ const BookCard = ({ searchTerm }) => {
     )}
   </div>
 );
-
 };
 
 export default BookCard;
