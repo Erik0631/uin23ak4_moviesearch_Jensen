@@ -29,39 +29,34 @@ const BookCard = ({ searchTerm }) => {
   const handleAmazonSearch = (isbn) => window.open(`https://www.amazon.com/s?k=${isbn}`, '_blank') /* Bruker boken sin isbn for å søke hos Amazon */
 
   return (
-    <div>
-      {isLoading ? (
-        <div>Henter fra Openlibrary...</div>
-      ) : error ? (
-        <div>Error: {error.message}</div>
-      ) : (
-        <div>
-          {searchResults.length > 0 ? (
-            <div>
-              {searchResults.map((book) => (/* Henter bok informajson */
-                <div key={book.key} className="book-card">
-                  <div className="book-details">
-                  <article>
-                    <div>Title:{book.title}</div>
-                    <div>First published year: {book.first_publish_year}</div>
-                    <div>Author: {book.author_name}</div>
-                    <div>Average rating: {book.ratings_average || 'Rating not available'}</div> {/* Henter rating vis dette er tilgjengelig*/}
-                      {book.cover_i && (
-                        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />  /* Henter book cover vis det er tilgjendlig  */
-                      )}
-                    </article> 
-                  </div>
-                  <button onClick={() => handleAmazonSearch(book.isbn[0])}>Amazon</button> {/* Knapp for å søke på Amazon */}
-                </div>
-              ))}
+
+  <div>
+    {isLoading ? (
+      <div>Henter fra Openlibrary...</div>
+    ) : error ? (
+      <div>Error: {error.message}</div>
+    ) : (
+      <div className="book-card-container">
+        {searchResults.length > 0 ? (
+          searchResults.map((book) => (
+            <div key={book.key} className="book-card">
+              <div>Title: {book.title}</div>
+              <div>First published year: {book.first_publish_year}</div>
+              <div>Author: {book.author_name}</div>
+              <div>Average rating: {book.ratings_average || 'Rating not available'}</div>
+                  {book.cover_i && (
+                    <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} alt="Book Cover" />
+                  )}
             </div>
-          ) : (
-            <div>Ingen Resultater</div> //Feilmelding 
-          )}
-        </div>
-      )}
-    </div>
-  );
+          ))
+        ) : (
+          <div>Ingen Resultater</div> //Feilmelding
+        )}
+      </div>
+    )}
+  </div>
+);
+
 };
 
 export default BookCard;
